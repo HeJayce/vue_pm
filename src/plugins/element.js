@@ -1,0 +1,15 @@
+import Vue from 'vue'
+import { Container, Header, Aside, Main, Menu, Submenu, MenuItemGroup, MenuItem, Image, Row, Button, Breadcrumb, BreadcrumbItem } from 'element-ui'
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
+Vue.use(Main)
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
+Vue.use(Image)
+Vue.use(Row)
+Vue.use(Button)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)

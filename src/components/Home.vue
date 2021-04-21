@@ -135,6 +135,10 @@
               <!-- 文本 -->
               <span>这是内容一</span>
             </el-menu-item>
+            <el-menu-item index='test'>
+              <i class='el-icon-document'></i>
+              <span slot='title'>数据分析二</span>
+            </el-menu-item>
           </el-submenu>
 
         </el-menu>
@@ -153,5 +157,6 @@ export default {
   name: 'home'
 }
 </script>
-<style lang='less' scoped>
+<style lang='css' scoped>
+@import "../assets/styles/global.css";
 </style>

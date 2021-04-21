@@ -1,5 +1,26 @@
 import echarts from 'echarts'
 
+const randomArray = (length) => {
+  let i = 0
+  let index = 0
+  let temp = null
+  const arr = [length]
+  length = typeof (length) === 'undefined' ? 9 : length
+  for (i = 1; i <= length; i++) {
+    arr[i - 1] = i
+  }
+  for (i = 1; i <= length; i++) {
+    index = window.parseInt(Math.random() * (length - i)) + i
+    if (index !== i) {
+      temp = arr[i - 1]
+      arr[i - 1] = arr[index - 1]
+      arr[index - 1] = temp
+    }
+  }
+  return arr
+}
+const arr = randomArray(12)
+
 const install = function (Vue) {
   Object.defineProperties(Vue.prototype, {
     $chart: {
@@ -17,7 +38,7 @@ const install = function (Vue) {
                 type: 'value'
               },
               series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                data: arr,
                 type: 'line',
                 smooth: true
               }]

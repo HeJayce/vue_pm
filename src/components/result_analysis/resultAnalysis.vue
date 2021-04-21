@@ -1,6 +1,7 @@
 <template>
-  <div class='hello'>
-    <div id='chart1'></div>
+  <div class="hello">
+    <div id="chart1"></div>
+    <div id="chart2"></div>
   </div>
 </template>
 
@@ -12,14 +13,21 @@ export default {
   },
   mounted () {
     this.$chart.line1('chart1')
+    this.$chart.line1('chart2')
   }
 }
-
 </script>
 
 <style scoped>
-#chart1 {
-  width: 300px;
-  height: 300px;
+.hello{
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
+#chart1,#chart2{
+  width: 50%;
+  height: 50%;
+  flex: 1;
+}
+
 </style>

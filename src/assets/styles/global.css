@@ -3,6 +3,7 @@ html,body,#app,.el-container{
     margin: 0px;
     padding:0px;
     height: 100%;
+
 }
 .el-header {
   background-color: #b3c0d1;
@@ -48,4 +49,7 @@ html,body,#app,.el-container{
   width: 178px;
   height: 178px;
   display: block;
+}
+.el-container{
+  display: flex;
 }

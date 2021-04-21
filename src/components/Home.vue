@@ -120,7 +120,7 @@
             </el-menu-item>
           </el-submenu>
 
-          <el-submenu index='6'>
+          <el-submenu index='result_analysis'>
             <!-- 一级菜单模板区域 -->
             <template slot='title'>
               <!-- 图标 -->
@@ -129,7 +129,7 @@
               <span>结果分析_何英杰</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item index='result_analysis'>
+            <el-menu-item index='resultAnalysis'>
               <!-- 图标 -->
               <i class='el-icon-location'></i>
               <!-- 文本 -->

@@ -5,7 +5,7 @@ import home from '../components/Home.vue'
 import data_analysis_1 from '@/components/data_analysis/data_analysis_1.vue'
 import data_analysis_2 from '@/components/data_analysis/data_analysis_2.vue'
 import resultAnalysis from '@/components/result_analysis/resultAnalysis.vue'
-import test from '@/components/result_analysis/test.vue'
+import test from '@/components/result_analysis/displaylstm.vue'
 
 Vue.use(VueRouter)
 

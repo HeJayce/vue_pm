@@ -1,8 +1,14 @@
 <template>
+  <div>
+    <el-row>
+    <p style='color: #333;text-align: left;line-height: 80px;font-size: 32px;font-weight: bold;'>PM2.5可视化展示</p>
+    </el-row>
     <div id='father'>
+
       <div id='chartLine'></div>
       <div id='chartLine2'></div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -16,7 +22,7 @@ export default {
   name: 'resultAnalysis',
   data () {
     return {
-      // eslint-disable-next-line no-undef
+      flag: true,
       baseURL: 'http://127.0.0.1:8000/',
       chartLine: null,
       chartLine2: null,
@@ -51,9 +57,13 @@ export default {
     // this.getpic()
     this.draw()
     // this.drewBjLine()
+    // this.drewQimap()
     // })
   },
   methods: {
+    switchchart () {
+      this.flag = !this.flag
+    },
     getbjdata () {
       const that = this
       return axios.get(this.baseURL + 'data/get_bjdata').then(function (result) {
@@ -65,12 +75,11 @@ export default {
       const that = this
       this.isShow = !this.isShow
       return axios.get(this.baseURL + 'data/get_qidata').then(function (result) {
+        console.log(result.data)
         that.iddata = result.data.iddata
         that.pmh = result.data.pmhdata
         that.pml = result.data.pmldata
-        // console.log(that.pmh)
       })
-      // this.dataBJ = tha
     },
     async draw () {
       await this.getData()
@@ -140,7 +149,7 @@ export default {
       const option = {
         tooltip: {
           trigger: 'axis',
-          position: function (pt) {
+          wposition: function (pt) {
             return [pt[0], '10%']
           }
         },
@@ -198,6 +207,206 @@ export default {
       }
       option && this.chartLine2.setOption(option)
     }
+    // drewQimap () {
+    //   var chartDom = document.getElementById('chartMap')
+    //   var myChart = echarts.init(chartDom)
+    //   var option
+    //
+    //   var data = [
+    //     {
+    //       name: 'hai',
+    //       value: 9
+    //     }
+    //   ]
+    //   var geoCoordMap = {
+    //     'hai': [121.15, 31.89]
+    //   }
+    //
+    //   var convertData = function (data) {
+    //     var res = []
+    //     for (var i = 0; i < data.length; i++) {
+    //       var geoCoord = geoCoordMap[data[i].name]
+    //       if (geoCoord) {
+    //         res.push({
+    //           name: data[i].name,
+    //           value: geoCoord.concat(data[i].value)
+    //         })
+    //       }
+    //     }
+    //     return res
+    //   }
+    //
+    //   option = {
+    //     title: {
+    //       text: '全国主要城市空气质量 - 百度地图',
+    //       subtext: 'data from PM25.in',
+    //       sublink: 'http://www.pm25.in',
+    //       left: 'center'
+    //     },
+    //     tooltip: {
+    //       trigger: 'item'
+    //     },
+    //     bmap: {
+    //       center: [104.114129, 37.550339],
+    //       zoom: 5,
+    //       roam: true,
+    //       mapStyle: {
+    //         styleJson: [{
+    //           'featureType': 'water',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#d1d1d1'
+    //           }
+    //         }, {
+    //           'featureType': 'land',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#f3f3f3'
+    //           }
+    //         }, {
+    //           'featureType': 'railway',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'visibility': 'off'
+    //           }
+    //         }, {
+    //           'featureType': 'highway',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#fdfdfd'
+    //           }
+    //         }, {
+    //           'featureType': 'highway',
+    //           'elementType': 'labels',
+    //           'stylers': {
+    //             'visibility': 'off'
+    //           }
+    //         }, {
+    //           'featureType': 'arterial',
+    //           'elementType': 'geometry',
+    //           'stylers': {
+    //             'color': '#fefefe'
+    //           }
+    //         }, {
+    //           'featureType': 'arterial',
+    //           'elementType': 'geometry.fill',
+    //           'stylers': {
+    //             'color': '#fefefe'
+    //           }
+    //         }, {
+    //           'featureType': 'poi',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'visibility': 'off'
+    //           }
+    //         }, {
+    //           'featureType': 'green',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'visibility': 'off'
+    //           }
+    //         }, {
+    //           'featureType': 'subway',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'visibility': 'off'
+    //           }
+    //         }, {
+    //           'featureType': 'manmade',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#d1d1d1'
+    //           }
+    //         }, {
+    //           'featureType': 'local',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#d1d1d1'
+    //           }
+    //         }, {
+    //           'featureType': 'arterial',
+    //           'elementType': 'labels',
+    //           'stylers': {
+    //             'visibility': 'off'
+    //           }
+    //         }, {
+    //           'featureType': 'boundary',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#fefefe'
+    //           }
+    //         }, {
+    //           'featureType': 'building',
+    //           'elementType': 'all',
+    //           'stylers': {
+    //             'color': '#d1d1d1'
+    //           }
+    //         }, {
+    //           'featureType': 'label',
+    //           'elementType': 'labels.text.fill',
+    //           'stylers': {
+    //             'color': '#999999'
+    //           }
+    //         }]
+    //       }
+    //     },
+    //     series: [
+    //       {
+    //         name: 'pm2.5',
+    //         type: 'scatter',
+    //         coordinateSystem: 'bmap',
+    //         data: convertData(data),
+    //         symbolSize: function (val) {
+    //           return val[2] / 10
+    //         },
+    //         encode: {
+    //           value: 2
+    //         },
+    //         label: {
+    //           formatter: '{b}',
+    //           position: 'right',
+    //           show: false
+    //         },
+    //         emphasis: {
+    //           label: {
+    //             show: true
+    //           }
+    //         }
+    //       },
+    //       {
+    //         name: 'Top 5',
+    //         type: 'effectScatter',
+    //         coordinateSystem: 'bmap',
+    //         data: convertData(data.sort(function (a, b) {
+    //           return b.value - a.value
+    //         }).slice(0, 6)),
+    //         symbolSize: function (val) {
+    //           return val[2] / 10
+    //         },
+    //         encode: {
+    //           value: 2
+    //         },
+    //         showEffectOn: 'render',
+    //         rippleEffect: {
+    //           brushType: 'stroke'
+    //         },
+    //         hoverAnimation: true,
+    //         label: {
+    //           formatter: '{b}',
+    //           position: 'right',
+    //           show: true
+    //         },
+    //         itemStyle: {
+    //           shadowBlur: 10,
+    //           shadowColor: '#333'
+    //         },
+    //         zlevel: 1
+    //       }
+    //     ]
+    //   }
+    //
+    //   option && myChart.setOption(option)
+    // }
   }
 
 }
@@ -210,14 +419,24 @@ export default {
   display: flex;
   align-content: center;
 }
+
 #chartLine {
-  width: 50%;
+  width: 100%;
   height: 500px;
   align-content: center;
-  flex: auto;
+  /*flex: auto;*/
   border: #409EFF;
 }
+
 #chartLine2 {
+  width: 100%;
+  height: 500px;
+  align-content: center;
+  /*flex: auto;*/
+  border: #409EFF;
+}
+
+#chartMap {
   width: 50%;
   height: 500px;
   align-content: center;

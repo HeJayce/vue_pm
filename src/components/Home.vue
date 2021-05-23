@@ -124,20 +124,35 @@
             <!-- 一级菜单模板区域 -->
             <template slot='title'>
               <!-- 图标 -->
-              <i class='el-icon-location'></i>
+              <i class='el-icon-ice-cream-round'></i>
               <!-- 文本 -->
               <span>结果分析_何英杰</span>
             </template>
             <!-- 二级菜单 -->
             <el-menu-item index='resultAnalysis'>
               <!-- 图标 -->
-              <i class='el-icon-location'></i>
+              <i class='el-icon-s-marketing'></i>
               <!-- 文本 -->
-              <span>这是内容一</span>
+              <span>echarts绘制图表</span>
             </el-menu-item>
-            <el-menu-item index='test'>
-              <i class='el-icon-document'></i>
-              <span slot='title'>数据分析二</span>
+            <el-menu-item index='displaylstm'>
+              <i class='el-icon-picture-outline-round'></i>
+              <span slot='title'>数据分析可视化结果</span>
+            </el-menu-item>
+          </el-submenu>
+
+          <el-submenu index='xierui'>
+            <!-- 一级菜单模板区域 -->
+            <template slot='title'>
+              <!-- 图标 -->
+              <i class='el-icon-ice-cream-round'></i>
+              <!-- 文本 -->
+              <span>结果展示——谢锐</span>
+            </template>
+            <!-- 二级菜单 -->
+            <el-menu-item index='display'>
+              <i class='el-icon-picture-outline-round'></i>
+              <span slot='title'>结果展示</span>
             </el-menu-item>
           </el-submenu>
 

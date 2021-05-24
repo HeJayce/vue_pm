@@ -133,7 +133,7 @@
               <!-- 图标 -->
               <i class='el-icon-s-marketing'></i>
               <!-- 文本 -->
-              <span>echarts绘制图表</span>
+              <span>PM2.5数据展示</span>
             </el-menu-item>
             <el-menu-item index='displaylstm'>
               <i class='el-icon-picture-outline-round'></i>
